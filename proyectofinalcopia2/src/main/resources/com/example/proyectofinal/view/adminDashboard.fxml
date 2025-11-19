@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.proyectofinal.controller.AdminDashboardController"
+      prefHeight="768" prefWidth="1366"
+      spacing="8"
+      style="-fx-background-color: #ffffff;">
+
+    <children>
+
+        <VBox spacing="0" style="-fx-background-color: #2c3e50;">
+            <HBox spacing="8" style="-fx-padding: 8; -fx-alignment: center-left;">
+                <children>
+                    <Label fx:id="lblUser" text="Administrador" style="-fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button mnemonicParsing="false" onAction="#handleUpdateData" text="🔄 Actualizar"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 4 6; -fx-font-size: 10;" />
+                    <Button mnemonicParsing="false" onAction="#handleLogout" text="Cerrar Sesión"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 4 8;" />
+                </children>
+            </HBox>
+        </VBox>
+
+
+        <VBox VBox.vgrow="ALWAYS">
+            <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                <tabs>
+
+                    <Tab text="👥 Gestión de Empleados">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 12;" VBox.vgrow="ALWAYS">
+                                <VBox spacing="4">
+                                    <Label text="Gestión de Empleados" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                                </VBox>
+
+                                <HBox spacing="12" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+
+                                    <VBox spacing="6" style="-fx-padding: 10; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+                                        <VBox spacing="4">
+                                            <Label text="Registro de Empleado" style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+                                        </VBox>
+
+                                        <GridPane hgap="6" vgap="5">
+                                            <columnConstraints>
+                                                <ColumnConstraints prefWidth="90" />
+                                                <ColumnConstraints prefWidth="130" />
+                                            </columnConstraints>
+
+                                            <children>
+                                                <Label text="ID:*" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <TextField fx:id="txtEmployeeId" promptText="EMP001" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Nombre:*" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <TextField fx:id="txtEmployeeName" promptText="Nombre completo" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Email:*" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <TextField fx:id="txtEmployeeEmail" promptText="email@banco.com" GridPane.rowIndex="2" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Teléfono:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <TextField fx:id="txtEmployeePhone" promptText="Teléfono" GridPane.rowIndex="3" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Dirección:" GridPane.rowIndex="4" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <TextField fx:id="txtEmployeeAddress" promptText="Dirección completa" GridPane.rowIndex="4" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Cargo:*" GridPane.rowIndex="5" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <ComboBox fx:id="cmbPosition" GridPane.rowIndex="5" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Salario:*" GridPane.rowIndex="6" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <TextField fx:id="txtSalary" promptText="0.00" GridPane.rowIndex="6" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+
+                                                <Label text="Fecha:*" GridPane.rowIndex="7" GridPane.columnIndex="0" style="-fx-font-weight: bold; -fx-font-size: 10;" />
+                                                <DatePicker fx:id="dtpHireDate" GridPane.rowIndex="7" GridPane.columnIndex="1" style="-fx-font-size: 10;" />
+                                            </children>
+                                        </GridPane>
+
+                                        <VBox spacing="4">
+                                            <HBox spacing="6">
+                                                <Button mnemonicParsing="false" onAction="#handleRegisterEmployee" text="➕ Registrar"
+                                                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+                                                <Button mnemonicParsing="false" onAction="#handleDeleteEmployee" text="❌ Eliminar"
+                                                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+                                            </HBox>
+                                            <Label text="* Campos obligatorios" style="-fx-text-fill: #7f8c8d; -fx-font-size: 9;" />
+                                        </VBox>
+                                    </VBox>
+
+                                    <VBox spacing="6" VBox.vgrow="ALWAYS">
+                                        <VBox spacing="4">
+                                            <Label text="Empleados Registrados" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 11;" />
+                                        </VBox>
+                                        <VBox VBox.vgrow="ALWAYS">
+                                            <TableView fx:id="tblEmployees" VBox.vgrow="ALWAYS">
+                                                <columns>
+                                                    <TableColumn fx:id="colEmployeeId" text="ID" minWidth="50" />
+                                                    <TableColumn fx:id="colEmployeeName" text="Nombre" minWidth="100" />
+                                                    <TableColumn fx:id="colPosition" text="Cargo" minWidth="80" />
+                                                    <TableColumn fx:id="colSalary" text="Salario" minWidth="70" />
+                                                </columns>
+                                            </TableView>
+                                        </VBox>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </Tab>
+
+                    <Tab text="💳 Monitoreo Transacciones">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 12;" VBox.vgrow="ALWAYS">
+                                <VBox spacing="4">
+                                    <Label text="Monitoreo de Transacciones" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                                </VBox>
+
+                                <VBox spacing="4">
+                                    <HBox spacing="6" style="-fx-padding: 6; -fx-background-color: #fffbf0; -fx-background-radius: 3;">
+                                        <Label text="🚨 Sistema de monitoreo activo - Transacciones sospechosas se marcan automáticamente"
+                                               style="-fx-text-fill: #e67e22; -fx-font-weight: bold; -fx-font-size: 10;" />
+                                    </HBox>
+                                </VBox>
+
+                                <VBox VBox.vgrow="ALWAYS">
+                                    <TableView fx:id="tblTransactions" VBox.vgrow="ALWAYS">
+                                        <columns>
+                                            <TableColumn fx:id="colTransactionId" text="ID" minWidth="80" />
+                                            <TableColumn fx:id="colType" text="Tipo" minWidth="70" />
+                                            <TableColumn fx:id="colAmount" text="Monto" minWidth="70" />
+                                            <TableColumn fx:id="colDate" text="Fecha" minWidth="100" />
+                                            <TableColumn fx:id="colDescription" text="Descripción" minWidth="150" />
+                                        </columns>
+                                    </TableView>
+                                </VBox>
+                            </VBox>
+                        </content>
+                    </Tab>
+
+                    <Tab text="🏦 Gestión de Cuentas">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 12;" VBox.vgrow="ALWAYS">
+                                <VBox spacing="4">
+                                    <Label text="Gestión de Cuentas Bancarias" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                                </VBox>
+
+                                <VBox spacing="4">
+                                    <HBox spacing="6" style="-fx-padding: 6; -fx-background-color: #f0f8ff; -fx-background-radius: 3;">
+                                        <Label text="📊 Vista administrativa completa de todas las cuentas del banco"
+                                               style="-fx-text-fill: #3498db; -fx-font-weight: bold; -fx-font-size: 10;" />
+                                    </HBox>
+                                </VBox>
+
+                                <VBox VBox.vgrow="ALWAYS">
+                                    <TableView fx:id="tblAccounts" VBox.vgrow="ALWAYS">
+                                        <columns>
+                                            <TableColumn fx:id="colAccountNumber" text="Número" minWidth="70" />
+                                            <TableColumn fx:id="colAccountType" text="Tipo" minWidth="80" />
+                                            <TableColumn fx:id="colAccountHolder" text="Titular" minWidth="100" />
+                                            <TableColumn fx:id="colAccountBalance" text="Saldo" minWidth="70" />
+                                            <TableColumn fx:id="colOpeningDate" text="Fecha" minWidth="80" />
+                                        </columns>
+                                    </TableView>
+                                </VBox>
+
+                                <VBox spacing="2">
+                                    <Label text="💡 Cuentas 'Corriente' aplican 2% de costo en retiros y transferencias"
+                                           style="-fx-text-fill: #e74c3c; -fx-font-weight: bold; -fx-font-size: 9;" />
+                                </VBox>
+                            </VBox>
+                        </content>
+                    </Tab>
+
+
+                    <Tab text="📊 Reportes">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 12;" VBox.vgrow="ALWAYS">
+                                <VBox spacing="4">
+                                    <Label text="Sistema de Reportes" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                                </VBox>
+
+                                <VBox spacing="6">
+                                    <VBox spacing="4">
+                                        <Label text="Reportes Rápidos" style="-fx-font-weight: bold; -fx-font-size: 11;" />
+                                    </VBox>
+                                    <HBox spacing="6" alignment="CENTER_LEFT">
+                                        <Button mnemonicParsing="false" onAction="#handleGenerateClientReport"
+                                                text="👥 Reporte Clientes"
+                                                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+
+                                        <Button mnemonicParsing="false" onAction="#handleGenerateTransactionReport"
+                                                text="💳 Reporte Transacciones"
+                                                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+
+                                        <Button mnemonicParsing="false" onAction="#handleGenerateAccountReport"
+                                                text="🏦 Reporte Cuentas"
+                                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+                                    </HBox>
+                                </VBox>
+
+
+                                <VBox spacing="6">
+                                    <VBox spacing="4">
+                                        <Label text="Reportes Avanzados" style="-fx-font-weight: bold; -fx-font-size: 11;" />
+                                    </VBox>
+                                    <HBox spacing="6" alignment="CENTER_LEFT">
+                                        <Button mnemonicParsing="false" onAction="#handleViewAllAccounts"
+                                                text="📋 Ver Todas Cuentas"
+                                                style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+
+                                        <Button mnemonicParsing="false" onAction="#handleViewSuspiciousTransactions"
+                                                text="🚨 Transacciones Sospechosas"
+                                                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+
+                                        <Button mnemonicParsing="false" onAction="#handleGenerateCompleteReport"
+                                                text="📊 Reporte Completo"
+                                                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+                                    </HBox>
+                                    <HBox spacing="6" alignment="CENTER_LEFT">
+                                        <Button mnemonicParsing="false" onAction="#handleExportReport"
+                                                text="💾 Exportar Reporte"
+                                                style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5 6; -fx-font-size: 10;" />
+                                    </HBox>
+                                </VBox>
+
+
+                                <VBox spacing="4" VBox.vgrow="ALWAYS">
+                                    <TitledPane text="📄 Resultados del Reporte" animated="false" VBox.vgrow="ALWAYS">
+                                        <content>
+                                            <VBox spacing="0" VBox.vgrow="ALWAYS">
+                                                <TextArea fx:id="txtReports" VBox.vgrow="ALWAYS" editable="false"
+                                                          style="-fx-control-inner-background: #f8f9fa; -fx-font-family: 'Consolas'; -fx-font-size: 10;" />
+                                            </VBox>
+                                        </content>
+                                    </TitledPane>
+                                </VBox>
+                            </VBox>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </children>
+
+    <padding>
+        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+    </padding>
+</VBox>
