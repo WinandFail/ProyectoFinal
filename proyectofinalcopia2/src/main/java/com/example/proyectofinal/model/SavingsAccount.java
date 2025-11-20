@@ -48,7 +48,7 @@ public class SavingsAccount extends BankAccount {
                 accountNumber, balance, interestRate * 100, minimumBalance);
     }
 
-    // Getters y Setters
+   
     public double getInterestRate() { return interestRate; }
 
     public double getMinimumBalance() { return minimumBalance; }
